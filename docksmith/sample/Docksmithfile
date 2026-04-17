@@ -1,0 +1,9 @@
+FROM alpine:3.18
+RUN mkdir -p /app
+WORKDIR /app
+RUN apk add --no-cache python3
+ENV GREETING=Hello
+COPY app.py /app
+RUN touch /isolation_test.txt
+RUN echo "Build complete"
+CMD ["python3", "/app/app.py"]
